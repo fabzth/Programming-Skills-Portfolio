@@ -4,7 +4,7 @@ Created on Wed Nov 20 20:02:49 2024
 @author: fabiola patero
 """
 #ASSESSMENT 2 PROGRAMMING
-main_menu = ["Drinks","Hot Drinks" "Chips"]
+main_menu = ["Drinks","Hot Drinks", "Chips"]
 drinks_dict = {
     2: {'name': 'Arwa Water', 'price': 0.95},
     22:{'name': 'Mai Dubai Water', 'price': 1.00},
@@ -41,7 +41,7 @@ total = 0
 
 def main_menu_func():
     print(main_menu)
-    x = str(input("\n\n·.★·.·´¯`·.·★ PLEASE CHOOSE THE CATEGORY YOU WANT. ★·.·´¯`·.·★.·. Type EXIT to finish.\n\n"))
+    x = str(input("\n\n·.★·.·´¯`·.·★ PLEASE CHOOSE THE CATEGORY YOU WANT. ★·.·´¯`·.·★.·. Type EXIT to finish.\n\n")).capitalize()
     if x == 'Drinks': #using the if condition when the consumer chose drinks
         drinks_func()
     if x== 'Hot Drinks': #using the if condition when the consumer chose hot drinks
@@ -49,25 +49,25 @@ def main_menu_func():
     elif x == 'Chips': #using the if condition when the consumer chose chips
         chips_func()
     else:
-        print("\n\n°•.•°¤*✬.•°°• NOW YOU CAN PICK UP YOUR ORDERS.✬ DON'T FORGET YOUR CHANGE:3 °•°•.✬*¤°•.•°\n")
+        print("\n\n°•.•°¤*✬.•°°• NOW YOU CAN PICK UP YOUR ITEMS.✬ DON'T FORGET YOUR CHANGE:3 °•°•.✬*¤°•.•°\n")
         change_func() #this will print the receipt once the purchase is done
 
 def another_drink():
-    x = input("\n\n¯`’•.♥ ♥WOULD YOU CARE FOR ANOTHER DRINK ?(¯`’•.¸❤♫♪♥(◠‿◠)♥♫♪❤¸.•’´¯) Type YES or NO:\n")
+    x = input("\n\n¯`’•.♥ ♥WOULD YOU CARE FOR ANOTHER DRINK ?(¯`’•.¸❤♫♪♥(◠‿◠)♥♫♪❤¸.•’´¯) Type YES or NO:\n").upper()
     if x == 'YES': #using the if condition to ask the buyer for another purchase
         drinks_func()
     else:
         main_menu_func() #will return to main menu
 
 def another_hotdrink():
-    x = input("\n\n★¸.•☆•.¸★ WOULD YOU CARE FOR ANOTHER HOT DRINK ? ★⡀.•☆•.★ Type YES or NO:\n")
+    x = input("\n\n★¸.•☆•.¸★ WOULD YOU CARE FOR ANOTHER HOT DRINK ? ★⡀.•☆•.★ Type YES or NO:\n").upper()
     if x == 'YES': 
         hotdrinks_func() #using the if condition to ask the buyer for another purchase
     else:
         main_menu_func() #will return to main menu
 
 def another_chips():
-    x = input("\n\nミ★ WOULD YOU LIKE TO GET ANOTHER CHIPS ? ★彡 Type YES or NO:\n")
+    x = input("\n\nミ★ WOULD YOU LIKE TO GET ANOTHER CHIPS ? ★彡 Type YES or NO:\n").upper()
     if x == 'YES': 
         chips_func()
     else:
@@ -110,7 +110,7 @@ def drinks_func():
 def hotdrinks_func():
     global total
     print(hotdrinks_dict)
-    print("\n\n°⨳°·..·°⨳°⊹٭ PLEASE TYPE IN THE HOT DRINK YOU WANT ٭⊹°⨳°·..·°⨳°. IF YOU DON'T WANT ANYMORE DRINK, type SKIP:\n") #using the integer to output the item id for hot drink
+    print("\n\n°⨳°·..·°⨳°⊹٭ PLEASE TYPE IN THE HOT DRINK YOU WANT ٭⊹°⨳°·..·°⨳°. IF YOU DON'T WANT ANYMORE DRINK, type SKIP:\n") 
     hotdrink_input = input() 
     if hotdrink_input.upper() == 'SKIP': 
         main_menu_func()
@@ -140,7 +140,7 @@ def chips_func():
 def change_func():
     global total
     print("\n\n❤꧁ღ⊱♥ THANK YOU FOR BUYING FROM ZETH'S VENDING MACHINE COLLECTION. WE HOPE TO SEE YOU AGAIN ! ♥⊱ღ꧂❤")
-    change = coins - total #using arithmetic operations to deduct the sum from the coins for the change
+    change = coins - total  #using arithmetic operations to deduct the sum from the coins for the change
     print("\nYOU PAID", coins, "WITH", str(total), ". AND YOUR CHANGE WILL BE:", change)
 
 print('٭⊹°⨳°·..·°⨳° ((¯♥¯))WELCOME TO ZETHS VENDING MACHINE COLLECTION! ((¯♥¯)) ٭⊹°⨳°·..·°⨳°')
@@ -151,7 +151,7 @@ if coin_type == "YES": #when true, continue with the next print
     print("\nYOU HAVE ENTERED", str(coins), "DHS. SELECT THE CATEGORY YOU LIKE\n")
     print(main_menu)
     print("\n\nTYPE THE CATEGORY YOU WANT:\n")
-    category_selection = str(input()) #To pick between beverages, hot drinks, and chips on the main menu
+    category_selection = str(input()).capitalize() #To pick between beverages, hot drinks, and chips on the main menu
     if category_selection == 'Drinks':
         drinks_func()
     if category_selection == 'Hot Drinks':
@@ -159,6 +159,6 @@ if coin_type == "YES": #when true, continue with the next print
     elif category_selection == 'Chips':
         chips_func() #using the if-elif condition for the main menu
     else:
-        print("OOPS! Please try again.") # the loop will break whenever there is an error in the input.
+        print("OOPS ! try again.") # the loop will break whenever there is an error in the input
 else:
     print('\*¸ „„.•~¹°”ˆ˜¨♡ Sorry, but we only accept DIRHAMS. TRY AGAIN!:3 ♡¨˜ˆ”°¹~•.„¸*') # the loop will break whenever there is an error in the input.
